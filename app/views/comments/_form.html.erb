@@ -1,0 +1,5 @@
+<%= form_for @comment do |f| %>
+  <%= f.text_field :text %>
+  <%= f.submit %>
+<% end %>
+<%= link_to 'Back', comments_path %>
