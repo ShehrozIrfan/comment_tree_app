@@ -186,8 +186,26 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  chromedriver-unknown
+  coffee-unknown
   ruby
-  x86_64-linux
+  sass-unknown
+  selenium-unknown
+  spring-unknown
+  tzinfo-unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  web-unknown
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
