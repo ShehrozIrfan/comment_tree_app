@@ -1,5 +1,6 @@
 <%= form_for @comment do |f| %>
-  <%= f.text_field :text %>
-  <%= f.submit %>
+  <%= f.text_field :text, class: 'form-control', placeholder: "Enter comment..." %>
+  <%= f.submit class: 'btn btn-primary btn-sm mt-3' %>
 <% end %>
-<%= link_to 'Back', comments_path %>
+<hr>
+<%= link_to 'Back', comments_path, class: "btn btn-secondary btn-sm mt-2" %>

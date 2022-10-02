@@ -9,8 +9,8 @@
     <div class="modal-body">
       <%= form_for @response, url: reply_comments_path do |f| %>
         <%= f.hidden_field :parent_id, value: @parent_comment.id %>
-        <%= f.text_field :text %>
-        <%= f.submit %>
+        <%= f.text_field :text, class: "form-control", placeholder: "Enter comment..." %>
+        <%= f.submit class: "btn btn-primary btn-sm mt-4" %>
       <% end %>
     </div>
   </div>
