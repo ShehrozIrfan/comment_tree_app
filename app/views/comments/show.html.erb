@@ -1,0 +1,21 @@
+<div>
+  <div><%= @comment.text %></div>
+  <div><%= link_to 'Reply', show_reply_modal_comment_path(@comment.id), remote: true %></div>
+</div>
+<div>
+  <% @comment.responses.each do |comment| %>
+    <div class="pl-3">
+      <div>
+        <table>
+          <tr>
+            <td><%= link_to comment_path(comment.id) do %> <%= comment.text %><% end %></td>
+            <td><%= link_to 'Edit', edit_comment_path(comment.id) %></td>
+            <td><%= link_to 'Delete', comment_path(comment.id), method: :delete, data: { confirm: "Are you sure to delete this comment" } %></td>
+          </tr>
+        </table>
+      </div>
+      <div><%= link_to 'Reply', show_reply_modal_comment_path(comment.id), remote: true %></div>
+    </div>
+  <% end %>
+</div>
+<div><%= link_to 'Back', back_comment_path %></div>

@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def index
-    @comments = Comment.all.order(created_at: :desc)
+    @comments = Comment.where(parent_id: nil).order(created_at: :desc)
   end
 
   def new
@@ -10,7 +10,11 @@ class CommentsController < ApplicationController
 
   def create
     Comment.create(comment_params)
-    redirect_to new_comment_path
+    redirect_to comments_path
+  end
+
+  def show
+    @comment = Comment.find_by(id: params[:id])
   end
 
   def edit
@@ -20,7 +24,7 @@ class CommentsController < ApplicationController
   def update
     comment = Comment.find_by(id: params[:id])
     comment.update(comment_params) if comment
-    redirect_to comments_path
+    redirect_to comment.parent_id.present? ? comment_path(comment.parent_id) : comments_path
   end
 
   def destroy
@@ -29,7 +33,26 @@ class CommentsController < ApplicationController
     redirect_to comments_path
   end
 
+  def show_reply_modal
+    @parent_comment = Comment.find_by(id: params[:id])
+    @response = Comment.new
+  end
+
+  def reply
+    reply = Comment.create(reply_params)
+    redirect_to comment_path(params[:comment][:parent_id])
+  end
+
+  def back
+    parent_id = Comment.find_by(id: params[:id]).parent_id
+    redirect_to parent_id.present? ? comment_path(parent_id) : comments_path
+  end
+
   private
+
+    def reply_params
+      params.require(:comment).permit(:text, :parent_id)
+    end
 
     def comment_params
       params.require(:comment).permit(:text)
