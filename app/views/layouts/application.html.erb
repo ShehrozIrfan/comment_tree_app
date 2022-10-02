@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CommentTreeApp</title>
+    <title>Comment Tree App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <%= render partial: 'shared/top_navbar' %>
     <%= yield %>
     <%= render partial: 'comments/modals' %>
   </body>
