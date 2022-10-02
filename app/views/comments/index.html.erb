@@ -2,7 +2,7 @@
 <% @comments.each do |comment| %>
   <table>
     <tr>
-      <td><%= comment.text %></td>
+      <td><%= link_to comment_path(comment.id) do %> <%= comment.text %><% end %></td>
       <td><%= link_to 'Edit', edit_comment_path(comment.id) %></td>
       <td><%= link_to 'Delete', comment_path(comment.id), method: :delete, data: { confirm: "Are you sure to delete this comment" } %></td>
     </tr>
