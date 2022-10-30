@@ -1,6 +1,6 @@
 <div class="container mt-100">
   <div class="row justify-content-center">
-    <div class="col-md-6">
+    <div class="col-md-9">
       <div>
        <div>
           <h5><%= @comment.text %><h5>
@@ -13,7 +13,14 @@
               <table class="table table-bordered table-hover table-striped">
                 <% @comment_responses.each do |comment| %>
                   <tr>
-                    <td><%= link_to comment_path(comment.id) do %> <%= comment.text %><% end %></td>
+                    <td>
+                      <%= link_to comment_path(comment.id) do %>
+                        <%= comment.text %>
+                        <% if comment.responses.any? %>
+                          <span class="badge badge-warning"><%= pluralize(comment.responses.count, 'reply') %></span>
+                        <% end %>
+                      <% end %>
+                    </td>
                     <td><%= link_to 'Reply', show_reply_modal_comment_path(comment.id), class: "btn btn-primary btn-sm", remote: true %></td>
                     <td><%= link_to 'Edit', edit_comment_path(comment.id), class: "btn btn-warning btn-sm" %></td>
                     <td><%= link_to 'Delete', comment_path(comment.id), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure to delete this comment" } %></td>
