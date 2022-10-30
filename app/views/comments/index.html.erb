@@ -29,6 +29,11 @@
               <div>
                 <%= link_to 'Add Comment', new_comment_path, class: "btn btn-primary btn-sm" %>
               </div>
+              <% if @comments.any? %>
+                <div class="pagination-wrap mt-3">
+                    <%= will_paginate @comment_responses %>
+                </div>
+              <% end %>
             </div>
           </div>
       </div>

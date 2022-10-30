@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def index
-    @comments = Comment.where(parent_id: nil).order(created_at: :desc)
+    @comments = Comment.where(parent_id: nil).order(created_at: :desc).paginate(page: params[:page], per_page: 5)
   end
 
   def new
@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
 
   def show
     @comment = Comment.find_by(id: params[:id])
+    @comment_responses = @comment.responses.paginate(page: params[:page], per_page: 5) if @comment.responses.any?
   end
 
   def edit

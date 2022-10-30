@@ -8,10 +8,10 @@
         </div>
         <div>
           <hr>
-          <% if @comment.responses.any? %>
+          <% if @comment_responses %>
             <div class="pl-4">
               <table class="table table-bordered table-hover table-striped">
-                <% @comment.responses.each do |comment| %>
+                <% @comment_responses.each do |comment| %>
                   <tr>
                     <td><%= link_to comment_path(comment.id) do %> <%= comment.text %><% end %></td>
                     <td><%= link_to 'Reply', show_reply_modal_comment_path(comment.id), class: "btn btn-primary btn-sm", remote: true %></td>
@@ -20,6 +20,9 @@
                   </tr>
                 <% end %>
               </table>
+            </div>
+            <div class="pagination-wrap">
+              <%= will_paginate @comment_responses %>
             </div>
           <% else %>
             <div class="btn-info text-light p-2">
