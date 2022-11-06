@@ -11,7 +11,11 @@
 
   <body>
     <%= render partial: 'shared/top_navbar' %>
-    <%= yield %>
-    <%= render partial: 'comments/modals' %>
+    <div class="mt-100">
+      <% if notice %><p class="alert alert-success text-center"><%= notice %></p><% end %>
+      <% if alert %><p class="alert alert-warning text-center"><%= alert %></p><% end %>
+      <%= yield %>
+      <%= render partial: 'comments/modals' %>
+    </div>
   </body>
 </html>

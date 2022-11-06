@@ -1,0 +1,15 @@
+.nav-right {
+  position: absolute;
+  right: 10px;
+}
+
+.dropdown-menu {
+  left: -100px!important;
+}
+
+@media(max-width: 992px) {
+  .nav-right {
+    position: unset;
+    right: 0px;
+  }
+}

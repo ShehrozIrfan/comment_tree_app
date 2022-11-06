@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # default root route must exist for devise
   root 'comments#index'
 
   resources :comments do
@@ -10,4 +11,6 @@ Rails.application.routes.draw do
       post 'reply'
     end
   end
+
+  devise_for :users
 end

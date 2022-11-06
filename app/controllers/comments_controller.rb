@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:index, :show, :back, :show_reply_modal]
   def index
     @comments = Comment.where(parent_id: nil).order(created_at: :desc).paginate(page: params[:page], per_page: 5)
   end
