@@ -4,7 +4,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#commentsNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="commentsNavbar">
+    <div class="collapse navbar-collapse nav-right" id="commentsNavbar">
       <ul class="navbar-nav">
         <li class="nav-item">
           <%= link_to 'All Comments', comments_path, class: 'nav-link'%>
@@ -13,8 +13,14 @@
           <%= link_to 'Add Comment', new_comment_path, class: 'nav-link'%>
         </li>
         <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link'%>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Settings
+          </a>
+          <div class="dropdown-menu">
+            <%= link_to 'Update Profile', edit_user_registration_path, class: 'dropdown-item'%>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item'%>
+          </div>
         </li>
         <% else %>
           <li class="nav-item">
