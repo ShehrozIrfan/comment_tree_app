@@ -1,0 +1,10 @@
+<% if @comment.errors.any? %>
+	<div class="alert alert-danger">
+		The form contains <%= pluralize(@comment.errors.count, "error") %>
+	</div>
+	<ul class="text-danger">
+		<% @comment.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
