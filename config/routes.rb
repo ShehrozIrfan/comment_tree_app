@@ -11,4 +11,6 @@ Rails.application.routes.draw do
       post 'reply'
     end
   end
+
+  devise_for :users
 end
