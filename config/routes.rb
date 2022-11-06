@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # default root route must exist for devise
   root 'comments#index'
 
   resources :comments do
