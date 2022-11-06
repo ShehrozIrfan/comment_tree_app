@@ -9,8 +9,12 @@ class CommentsController < ApplicationController
   end
 
   def create
-    Comment.create(comment_params)
-    redirect_to comments_path
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      redirect_to comments_path
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -23,9 +27,12 @@ class CommentsController < ApplicationController
   end
 
   def update
-    comment = Comment.find_by(id: params[:id])
-    comment.update(comment_params) if comment
-    redirect_to comment.parent_id.present? ? comment_path(comment.parent_id) : comments_path
+    @comment = Comment.find_by(id: params[:id])
+    if @comment && @comment.update(comment_params)
+      redirect_to @comment.parent_id.present? ? comment_path(@comment.parent_id) : comments_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -40,8 +47,14 @@ class CommentsController < ApplicationController
   end
 
   def reply
-    reply = Comment.create(reply_params)
-    redirect_to comment_path(params[:comment][:parent_id])
+    @response = Comment.new(reply_params[:comment])
+    if @response.save
+      redirect_to comment_path(reply_params[:comment][:parent_id])
+    else
+      respond_to do |format|
+        format.json { render json: {errors: @response.errors.full_messages} }
+      end
+    end
   end
 
   def back
@@ -52,7 +65,7 @@ class CommentsController < ApplicationController
   private
 
     def reply_params
-      params.require(:comment).permit(:text, :parent_id)
+      params.require(:data).permit(comment: [:parent_id, :text])
     end
 
     def comment_params
