@@ -1,5 +1,5 @@
 RSpec.describe Comment, type: :model do
-  describe "validations for comment model" do
+  describe "validations for comments model" do
     before(:example) do
       @comment = Comment.new(text: "This is some testing comment")
     end
