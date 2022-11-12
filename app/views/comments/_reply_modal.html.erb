@@ -10,7 +10,7 @@
       <div class="reply-modal-errors"></div>
       <%= form_for @response, html: { id: 'replyModalForm' } do |f| %>
         <%= f.hidden_field :parent_id, value: @parent_comment.id %>
-        <%= f.text_field :text, class: "form-control", placeholder: "Enter comment..." %>
+        <%= f.text_area :text, rows: '3', class: "form-control", placeholder: "Enter comment..." %>
         <%= f.submit class: "btn btn-primary btn-sm mt-4", id: 'replyModalSubmitBtn' %>
       <% end %>
     </div>
