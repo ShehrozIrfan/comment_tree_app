@@ -4,6 +4,10 @@ RSpec.describe User, type: :model do
       @user = User.new(email: "shehrozirfan899@gmail.com", password: "Foobar@123", password_confirmation: "Foobar@123")
     end
 
+    it "user should be an instance of User class" do
+      expect(@user).to be_instance_of User
+    end
+
     it "when email is nil" do
       @user.email = nil
       expect(@user).to_not be_valid

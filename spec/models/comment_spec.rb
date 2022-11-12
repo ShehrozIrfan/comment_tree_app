@@ -4,6 +4,10 @@ RSpec.describe Comment, type: :model do
       @comment = Comment.new(text: "This is some testing comment")
     end
 
+    it "comment should be an instance of Comment class" do
+      expect(@comment).to be_instance_of Comment
+    end
+
     it "when text is present and its valid" do
       expect(@comment).to be_valid
     end
