@@ -1,24 +1,40 @@
-# README
+# Comment Tree App
+- Comment tree app is a simple commenting app. In which a comment can have many `responses/replies`, making it a tree of comments, that's why it is named as `Comment Tree`
+- The concept of `self-referential classes` is used, to implement this `Comment Tree`
+- For the `Authorization` and `Authentication`, `devise` is used
+- A `User` can apply `CRUD` operation on the `Comments`
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Features
+- To be added
 
-Things you may want to cover:
+## How to contribute
+- To be added
 
-* Ruby version
+## Setup Details
 
-* System dependencies
+### Ruby version
+- `ruby 2.4.1`
+- Bundled with: `2.3.7`
 
-* Configuration
+### System dependencies
+- To be added
 
-* Database creation
+### Configuration
+- To be added
 
-* Database initialization
+### Database creation
+- To be added
 
-* How to run the test suite
+### Database initialization
+- To be added
 
-* Services (job queues, cache servers, search engines, etc.)
+### How to run the test suite
+- For the test cases `rspec` is used.
+- To run the test cases, run the command: `rspec`
+- To run the test cases for a specific file, run the command: `rspec file_path`
 
-* Deployment instructions
+### Services (job queues, cache servers, search engines, etc.)
+- To be added
 
-* ...
+### Deployment instructions
+- To be added
