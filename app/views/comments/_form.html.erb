@@ -1,6 +1,6 @@
 <%= form_for @comment do |f| %>
   <%= render 'shared/error_messages' %>
-  <%= f.text_field :text, class: 'form-control', placeholder: "Enter comment..." %>
+  <%= f.text_area :text, rows: '3', class: 'form-control', placeholder: "Enter comment..." %>
   <%= f.submit class: 'btn btn-primary btn-sm mt-3' %>
 <% end %>
 <hr>
