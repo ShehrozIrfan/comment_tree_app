@@ -1,4 +1,19 @@
 RSpec.describe Comment, type: :model do
+
+  describe "associations" do
+    it "comment belongs to a parent" do
+      expect(described_class.reflect_on_association(:parent).macro).to eq(:belongs_to)
+    end
+
+    it "comment has many responses" do
+      expect(described_class.reflect_on_association(:responses).macro).to eq(:has_many)
+    end
+
+    it "comment belongs to a user" do
+      expect(described_class.reflect_on_association(:user).macro).to eq(:belongs_to)
+    end
+  end
+
   describe "validations for comments model" do
     before(:example) do
       @comment = Comment.new(text: "This is some testing comment")
