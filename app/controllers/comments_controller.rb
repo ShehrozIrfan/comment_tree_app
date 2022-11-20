@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :back, :show_reply_modal]
+
   def index
     @comments = Comment.where(parent_id: nil).order(created_at: :desc).paginate(page: params[:page], per_page: 5)
   end
@@ -9,8 +10,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = current_user.comments.new(comment_params)
     if @comment.save
+      flash[:success] = "Comment created successfully."
       redirect_to comments_path
     else
       render 'new'
@@ -23,12 +25,18 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @comment = Comment.find_by(id: params[:id])
+    @comment = current_user.comments.find_by(id: params[:id])
+
+    if @comment.nil?
+      flash[:warning] = "You don't have permissions to edit this comment."
+      redirect_to root_path
+    end
   end
 
   def update
-    @comment = Comment.find_by(id: params[:id])
+    @comment = current_user.comments.find_by(id: params[:id])
     if @comment && @comment.update(comment_params)
+      flash[:success] = "Comment updated successfully."
       redirect_to @comment.parent_id.present? ? comment_path(@comment.parent_id) : comments_path
     else
       render 'edit'
@@ -36,8 +44,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    comment = Comment.find_by(id: params[:id])
-    comment.destroy if comment
+    comment = current_user.comments.find_by(id: params[:id])
+    if comment
+      comment.destroy
+      flash[:success] = "Commet deleted successfully."
+    else
+      flash[:danger] = "You don't have permissions to delete this comment."
+    end
     redirect_to comments_path
   end
 
@@ -47,8 +60,9 @@ class CommentsController < ApplicationController
   end
 
   def reply
-    @response = Comment.new(reply_params[:comment])
+    @response = current_user.comments.new(reply_params[:comment])
     if @response.save
+      flash[:success] = "Reply added successfully."
       redirect_to comment_path(reply_params[:comment][:parent_id])
     else
       respond_to do |format|
