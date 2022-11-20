@@ -1,4 +1,11 @@
 RSpec.describe User, type: :model do
+
+  describe "associations" do
+    it "user has many comments" do
+      expect(described_class.reflect_on_association(:comments).macro).to eq(:has_many)
+    end
+  end
+
   describe "validations for users model" do
     before(:example) do
       @user = User.new(email: "shehrozirfan899@gmail.com", password: "Foobar@123", password_confirmation: "Foobar@123")
