@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
     if @comment.save
+      flash[:success] = "Comment created successfully."
       redirect_to comments_path
     else
       render 'new'
@@ -35,6 +36,7 @@ class CommentsController < ApplicationController
   def update
     @comment = current_user.comments.find_by(id: params[:id])
     if @comment && @comment.update(comment_params)
+      flash[:success] = "Comment updated successfully."
       redirect_to @comment.parent_id.present? ? comment_path(@comment.parent_id) : comments_path
     else
       render 'edit'
@@ -60,6 +62,7 @@ class CommentsController < ApplicationController
   def reply
     @response = current_user.comments.new(reply_params[:comment])
     if @response.save
+      flash[:success] = "Reply added successfully."
       redirect_to comment_path(reply_params[:comment][:parent_id])
     else
       respond_to do |format|
