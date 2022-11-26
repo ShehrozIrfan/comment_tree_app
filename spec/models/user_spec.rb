@@ -88,4 +88,18 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe "attachment" do
+    it "uploads the user image" do
+      user = User.new
+      file = Rails.root.join('spec', 'support', 'assets', 'user', 'dummy.jpeg')
+      image = ActiveStorage::Blob.create_after_upload!(
+      io: File.open(file, 'rb'),
+        filename: 'dummy.jpeg',
+        content_type: 'image/jpeg'
+      ).signed_id
+      user.avatar.attach(image)
+      expect(user.avatar.attached?).to eq true
+    end
+  end
 end
