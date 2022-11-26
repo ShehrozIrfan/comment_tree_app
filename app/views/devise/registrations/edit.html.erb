@@ -7,6 +7,15 @@
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="field">
+          <%= image_tag(resource.avatar, withd: 200) if resource.avatar.attached? %>
+        </div>
+
+        <div class="field">
+          <%= f.label :upload_image %><br />
+          <%= f.file_field :avatar, class: 'form-control' %>
+        </div>
+
+        <div class="field">
           <%= f.label :first_name %><br />
           <%= f.text_field :first_name, class: 'form-control', autofocus: true, autocomplete: "first_name" %>
         </div>
