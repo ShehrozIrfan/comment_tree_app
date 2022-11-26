@@ -7,7 +7,7 @@
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="field">
-          <%= image_tag(resource.avatar, withd: 200) if resource.avatar.attached? %>
+          <%= image_tag(resource.avatar, width: 200) if resource.avatar.attached? %>
         </div>
 
         <div class="field">
