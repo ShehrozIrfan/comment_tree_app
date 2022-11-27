@@ -3,6 +3,7 @@
 - The concept of `self-referential classes` is used, to implement this `Comment Tree`
 - For the `Authorization` and `Authentication`, `devise` is used
 - A `User` can apply `CRUD` operation on the `Comments`
+- For test cases, `rspec` is used
 
 ## Features
 - To be added
@@ -43,22 +44,33 @@ In this project, I've used the AWS S3 Bucket for storing the `user` images. If y
   - Like it will be: `config.active_storage.service = :amazon_dev`
   - Restart the server and it will work
 
+### Database creation
+To setup the database for this project follow the steps below:
+- `rails db:create`
+- `rails db:migrate`
+
+If you ran into issues, follow:
+- `rails db:drop`
+- `rails db:create`
+- `rails db:migrate`
+
+### Seed Database
+To populate the database with some data use:
+`rails db:seed`
+
+### How to run the test suite
+- For the test cases `rspec` is used.
+- To run the test cases, run the command: `rspec`
+- To run the test cases for a specific file, run the command: `rspec file_path`
+
 ### System dependencies
 - To be added
 
 ### Configuration
 - To be added
 
-### Database creation
-- To be added
-
 ### Database initialization
 - To be added
-
-### How to run the test suite
-- For the test cases `rspec` is used.
-- To run the test cases, run the command: `rspec`
-- To run the test cases for a specific file, run the command: `rspec file_path`
 
 ### Services (job queues, cache servers, search engines, etc.)
 - To be added
