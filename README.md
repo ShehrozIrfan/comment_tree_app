@@ -3,6 +3,7 @@
 - The concept of `self-referential classes` is used, to implement this `Comment Tree`
 - For the `Authorization` and `Authentication`, `devise` is used
 - A `User` can apply `CRUD` operation on the `Comments`
+- For `User` image, `active storage` is used
 - For test cases, `rspec` is used
 
 ## Features
@@ -57,6 +58,10 @@ If you ran into issues, follow:
 ### Seed Database
 To populate the database with some data use:
 `rails db:seed`
+
+### Starting the server
+- To start the server use: `rails s`.
+- You can see the application running on: `http://localhost:3000/`
 
 ### How to run the test suite
 - For the test cases `rspec` is used.
