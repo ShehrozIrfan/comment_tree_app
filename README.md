@@ -16,6 +16,33 @@ Visit [CONTRIBUTING.md](https://github.com/ShehrozIrfan/comment_tree_app/blob/ma
 - `ruby 2.4.1`
 - Bundled with: `2.3.7`
 
+### Setting up storage for images
+In this project, I've used the AWS S3 Bucket for storing the `user` images. If you want the same functionality then you need to create your own S3 Bucket and add the required/relevant keys OR you can just set the storage to `local`. It is important to set this up for your local machine, otherwise you might face errors while `sign_up` or other places.
+
+- #### Local Storage
+  - Go to `config/environments/development.rb` file and for the line: `config.active_storage.service = :amazon_dev` replace `:amazon_dev` with `:local`.
+  - Like it will be: `config.active_storage.service = :local`
+  - Restart the server and it will work on local storage
+
+- #### Setting up S3 Bucket
+  - Make sure to create your own bucket on S3 or you can follow this [Link](https://medium.com/@rmg007/rails-6-0-upload-images-using-active-storage-and-amazon-simple-storage-service-amazon-s3-36861c03dc4a) for guidance on creating your S3 Bucket and connect it to the App.
+  - Create your credentials file using: `EDITOR="code --wait" bin/rails credentials:edit`
+  - Add the credentials: 
+ 
+    ``` 
+      aws:
+        access_key_id: "XXXX"
+        secret_access_key: "XXXX"
+        region: "us-east-1"
+        dev:
+          bucket: "BUCKET-NAME-DEV"
+        prod:
+          bucket: "BUCKET-NAME-PROD"
+     ```
+  - Go to `config/environments/development.rb` file and for the line: `config.active_storage.service = :local` replace `:local` with `:amazon_dev`.
+  - Like it will be: `config.active_storage.service = :amazon_dev`
+  - Restart the server and it will work
+
 ### System dependencies
 - To be added
 
