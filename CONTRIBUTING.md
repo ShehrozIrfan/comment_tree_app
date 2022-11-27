@@ -3,6 +3,7 @@
 ## How to contribute
 1. You can contribute in terms of Code:
    - By adding the new `feature` or fixing an `issue` or `bug`
+   - Make sure to add the relevant `test cases` for your code
 2. You can contribute in terms of documentation:
    - By adding the documentation for the new `feature` you added, by creating the `md` file
 
