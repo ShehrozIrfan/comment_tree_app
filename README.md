@@ -8,7 +8,7 @@
 - To be added
 
 ## How to contribute
-- To be added
+Visit [CONTRIBUTING.md](https://github.com/ShehrozIrfan/comment_tree_app/blob/master/CONTRIBUTING.md) for contribution to this project.
 
 ## Setup Details
 
