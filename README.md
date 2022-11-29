@@ -12,6 +12,9 @@
 ## How to contribute
 Visit [CONTRIBUTING.md](https://github.com/ShehrozIrfan/comment_tree_app/blob/master/CONTRIBUTING.md) for contribution to this project.
 
+## How to Learn
+Visit [LEARN.md](https://github.com/ShehrozIrfan/comment_tree_app/blob/master/LEARN.md) for learning `self-referential associations` and how it works in Ruby on Rails.
+
 ## Setup Details
 
 ### Ruby version
