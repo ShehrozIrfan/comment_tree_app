@@ -1,0 +1,9 @@
+$(function(){
+  $(".link").each(function(i){
+    len=$(this).text().length;
+    if(len>255)
+    {
+      $(this).text($(this).text().substr(0,255)+'...');
+    }
+  });
+});

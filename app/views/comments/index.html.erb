@@ -9,7 +9,7 @@
                 <% @comments.each do |comment| %>
                   <tr>
                     <td>
-                      <%= link_to comment_path(comment.id), class: 'text-dark' do %> <%= comment.text %><% end %>
+                      <%= link_to comment_path(comment.id), class: 'text-dark link' do %> <%= comment.text %><% end %>
                       <p><strong>From:</strong> <%= comment&.user&.first_name %></p>
                       <% if comment.responses.any? %>
                         <span class="badge badge-warning"><%= pluralize(comment.responses.count, 'reply') %></span>
