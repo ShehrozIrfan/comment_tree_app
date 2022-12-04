@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   validates :first_name, :last_name, presence: true, length: {minimum: 3, maximum: 12}
+
+  def name
+    "#{self.first_name} #{self.last_name}"
+  end
 end
