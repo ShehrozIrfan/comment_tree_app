@@ -12,8 +12,17 @@ module Types
     null: false,
     description: "Returns a list of comments"
 
+    field :users,
+    [Types::UserType],
+    null: false,
+    description: "Returns a list of users"
+
     def comments
       Comment.all
+    end
+
+    def users
+      User.all
     end
   end
 end
