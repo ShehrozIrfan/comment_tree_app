@@ -10,7 +10,6 @@ module Types
     field :user_id, Integer, null: true
     field :responses, [Types::CommentType], null: true
 
-
     def responses
       object.responses
     end
