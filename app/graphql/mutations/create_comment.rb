@@ -1,12 +1,13 @@
 module Mutations
   class CreateComment < Mutations::BaseMutation
     argument :text, String, required: true
+    argument :parent_id, ID, required: false, default_value: nil
 
     field :comment, Types::CommentType, null: true
     field :errors, [String], null: false
 
-    def resolve(text:)
-      comment = Comment.new(text: text)
+    def resolve(text:, parent_id:)
+      comment = Comment.new(text: text, parent_id: parent_id)
       if comment.save
         # successful creation, returns the created object with no errors
         {
