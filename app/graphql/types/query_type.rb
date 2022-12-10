@@ -12,11 +12,6 @@ module Types
     null: false,
     description: "Returns a list of comments"
 
-    field :users,
-    [Types::UserType],
-    null: false,
-    description: "Returns a list of users"
-
     field :comment,
     Types::CommentType,
     null: false,
@@ -24,16 +19,32 @@ module Types
       argument :id, ID, required: true
     end
 
+    field :users,
+    [Types::UserType],
+    null: false,
+    description: "Returns a list of users"
+
+    field :user,
+    Types::UserType,
+    null: false,
+    description: "Returns a user with given id" do
+      argument :id, ID, required: true
+    end
+
     def comments
       Comment.where(parent_id: nil).order(created_at: :desc)
+    end
+
+    def comment(id:)
+      Comment.find_by_id id
     end
 
     def users
       User.all
     end
 
-    def comment(id:)
-      Comment.find_by_id id
+    def user(id:)
+      User.find_by_id id
     end
   end
 end
