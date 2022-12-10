@@ -66,6 +66,10 @@ To populate the database with some data use:
 - To start the server use: `rails s`.
 - You can see the application running on: `http://localhost:3000/`
 
+### Getting GQL playground link
+- Made sure you've started the server using: `rails s`
+- Access the playground on link: `http://localhost:3000/graphiql`
+
 ### How to run the test suite
 - For the test cases `rspec` is used.
 - To run the test cases, run the command: `rspec`
