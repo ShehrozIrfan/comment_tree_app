@@ -16,5 +16,10 @@ module Types
     field :confirmed_at, GraphQL::Types::ISO8601DateTime
     field :confirmation_sent_at, GraphQL::Types::ISO8601DateTime
     field :unconfirmed_email, String
+    field :full_name, String, null: true
+
+    def full_name
+      [object.first_name, object.last_name].compact.join(" ")
+    end
   end
 end
