@@ -17,12 +17,23 @@ module Types
     null: false,
     description: "Returns a list of users"
 
+    field :comment,
+    Types::CommentType,
+    null: false,
+    description: "Returns a comment with given id" do
+      argument :id, ID, required: true
+    end
+
     def comments
-      Comment.all
+      Comment.where(parent_id: nil).order(created_at: :desc)
     end
 
     def users
       User.all
+    end
+
+    def comment(id:)
+      Comment.find_by_id id
     end
   end
 end
