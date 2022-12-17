@@ -1,6 +1,8 @@
-## Quering data using GraphhQL in Comment Tree App
+# Quering data using GraphhQL in Comment Tree App
 
-### Query
+## Query
+
+### Comment
 
 > **Fetch list of comments with responses**
 
@@ -49,6 +51,8 @@ query {
 }
 ```
 
+### User
+
 > **Fetch single user**
 
 ```
@@ -63,7 +67,9 @@ query {
 
 ---
 
-### Mutations
+## Mutations
+
+### Comment
 
 > **Create Comment**
 
@@ -118,6 +124,8 @@ mutation {
   }
 }
 ```
+
+### User
 
 > **Create User**
 
