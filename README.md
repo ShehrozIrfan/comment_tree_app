@@ -15,6 +15,12 @@ Visit [CONTRIBUTING.md](https://github.com/ShehrozIrfan/comment_tree_app/blob/ma
 ## How to Learn
 Visit [LEARN.md](https://github.com/ShehrozIrfan/comment_tree_app/blob/master/LEARN.md) for learning `self-referential associations` and how it works in Ruby on Rails.
 
+## Work with GQL
+- Made sure you've started the server using: `rails s`
+- Access the playground on link: `http://localhost:3000/graphiql`
+- To get help about quering data using GQL in comment tree app, follow this [link](https://github.com/ShehrozIrfan/comment_tree_app/blob/master/GRAPHQL.md)
+
+
 ## Setup Details
 
 ### Ruby version
@@ -65,11 +71,6 @@ To populate the database with some data use:
 ### Starting the server
 - To start the server use: `rails s`.
 - You can see the application running on: `http://localhost:3000/`
-
-### Getting GQL playground link
-- Made sure you've started the server using: `rails s`
-- Access the playground on link: `http://localhost:3000/graphiql`
-- To get help about quering data using GQL in comment tree app, follow this [link](https://github.com/ShehrozIrfan/comment_tree_app/blob/master/GRAPHQL.md)
 
 ### How to run the test suite
 - For the test cases `rspec` is used.
