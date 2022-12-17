@@ -39,6 +39,8 @@ query {
 }
 ```
 
+### User
+
 > **Fetch list of users**
 
 ```
@@ -50,8 +52,6 @@ query {
   }
 }
 ```
-
-### User
 
 > **Fetch single user**
 
