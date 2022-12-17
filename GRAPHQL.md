@@ -118,3 +118,55 @@ mutation {
   }
 }
 ```
+
+> **Create User**
+
+```
+mutation {
+  createUser(input: {
+    firstName:"Shehroz",
+    lastName:"Irfan",
+    email:"shehrozirfan90@gmail.com",
+    password:"Foobar@123"
+  })  {
+    user {
+      fullName
+      email
+    }
+    errors
+  }
+}
+```
+
+> **Update User**
+
+```
+mutation {
+  updateUser(input: {
+    id: 3,
+    firstName:"Sh",
+    lastName:"Irfan",
+  })  {
+    user {
+      id
+      fullName
+      email
+    }
+    errors
+  }
+}
+```
+
+> **Delete User**
+
+```
+mutation{
+  deleteUser(input: {id: 3}) {
+    user {
+      id
+      fullName
+    }
+    error
+  }
+}
+```
