@@ -2,7 +2,7 @@
 
 ### Query
 
-#### Get Comments
+> **Fetch list of comments with responses**
 
 ```
 query {
@@ -22,7 +22,7 @@ query {
 
 ```
 
-#### Get a comment with given `id`
+> **Fetch single comment**
 
 ```
 query {
@@ -37,7 +37,7 @@ query {
 }
 ```
 
-#### Get Users
+> **Fetch list of users**
 
 ```
 query {
@@ -49,7 +49,7 @@ query {
 }
 ```
 
-#### Get a user with given `id`
+> **Fetch single user**
 
 ```
 query {
@@ -65,7 +65,7 @@ query {
 
 ### Mutations
 
-#### Create a comment
+> **Create Comment**
 
 ```
 mutation {
@@ -83,8 +83,7 @@ mutation {
   }
 }
 ```
-
-#### Update a comment
+> **Update Comment**
 
 ```
 mutation {
@@ -102,8 +101,7 @@ mutation {
   }
 }
 ```
-
-#### Delete a Comment
+> **Delete Comment**
 
 ```
 mutation {
