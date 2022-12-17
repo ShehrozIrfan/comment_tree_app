@@ -25,8 +25,9 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @comment = current_user.comments.find_by(id: params[:id])
-
+    # @comment = current_user.comments.find_by(id: params[:id])
+    @comment = Comment.find_by_id params[:id]
+    authorize @comment
     if @comment.nil?
       flash[:warning] = "You don't have permissions to edit this comment."
       redirect_to root_path
@@ -35,6 +36,7 @@ class CommentsController < ApplicationController
 
   def update
     @comment = current_user.comments.find_by(id: params[:id])
+    authorize @comment
     if @comment && @comment.update(comment_params)
       flash[:success] = "Comment updated successfully."
       redirect_to @comment.parent_id.present? ? comment_path(@comment.parent_id) : comments_path
