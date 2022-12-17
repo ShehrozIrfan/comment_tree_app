@@ -15,7 +15,7 @@ module Mutations
       else
         {
           comment: nil,
-          error: "Something went wrong. Please try again."
+          error: comment.nil? ? "No comment exist with id: #{id}" : "Something went wrong. Please try again."
         }
       end
     end
