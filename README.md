@@ -18,7 +18,7 @@ Visit [LEARN.md](https://github.com/ShehrozIrfan/comment_tree_app/blob/master/LE
 ## Work with GQL
 - Made sure you've started the server using: `rails s`
 - Access the playground on link: `http://localhost:3000/graphiql`
-- To get help about quering data using GQL in comment tree app, follow this [link](https://github.com/ShehrozIrfan/comment_tree_app/blob/master/GRAPHQL.md)
+- To get help about quering data using GQL in comment tree app, follow [GRAPHQL.md](https://github.com/ShehrozIrfan/comment_tree_app/blob/master/GRAPHQL.md)
 
 
 ## Setup Details
