@@ -20,7 +20,7 @@
                           <span class="badge badge-warning"><%= pluralize(comment.responses.count, 'reply') %></span>
                         <% end %>
                       <% end %>
-                      <p><strong>From:</strong> <%= comment&.user&.first_name %></p>
+                      <p><strong>From:</strong> <%= comment&.user&.name %></p>
                     </td>
                     <td><%= link_to 'Reply', show_reply_modal_comment_path(comment.id), class: "btn btn-primary btn-sm", remote: true %></td>
                     <td><%= link_to 'Edit', edit_comment_path(comment.id), class: "btn btn-warning btn-sm" %></td>
