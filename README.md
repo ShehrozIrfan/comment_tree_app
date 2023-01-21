@@ -7,7 +7,7 @@
 - For test cases, `rspec` is used
 
 ## Features
-- To be added
+- To be added...
 
 ## How to contribute
 Visit [CONTRIBUTING.md](https://github.com/ShehrozIrfan/comment_tree_app/blob/master/CONTRIBUTING.md) for contribution to this project.
