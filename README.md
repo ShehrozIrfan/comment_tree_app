@@ -7,7 +7,8 @@
 - For test cases, `rspec` is used
 
 ## Features
-- To be added...
+- A user can signin/signup
+- ... to be added here ...
 
 ## How to contribute
 Visit [CONTRIBUTING.md](https://github.com/ShehrozIrfan/comment_tree_app/blob/master/CONTRIBUTING.md) for contribution to this project.
