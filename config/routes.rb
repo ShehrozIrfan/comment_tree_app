@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   # api's
   namespace :api do
     namespace :v1 do
-      resources :comments, only: :show
+      resources :comments
     end
   end
 end
