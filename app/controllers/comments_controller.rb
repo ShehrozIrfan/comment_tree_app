@@ -56,13 +56,19 @@ class CommentsController < ApplicationController
   end
 
   def reply
-    @response = current_user.comments.new(reply_params[:comment])
-    if @response.save
-      flash[:success] = "Reply added successfully."
-      redirect_to comment_path(reply_params[:comment][:parent_id])
+    @response = current_user.comments.build(reply_params[:comment])
+  
+    # Check if the parent ID from the submitted form data matches the ID from the referrer URL
+    if params[:data][:comment][:parent_id] != request.referrer.split("/").last
+      # Redirect to the parent comment page with an error message if the parent ID is invalid
+      redirect_to comment_path(request.referrer.split("/").last), alert: "Reply does not belong to that comment id:'#{request.referrer.split("/").last}'"
     else
-      respond_to do |format|
-        format.json { render json: {errors: @response.errors.full_messages} }
+      # Save the response and redirect to the parent comment page with a success message
+      if @response.save
+        redirect_to comment_path(reply_params[:comment][:parent_id]), notice: "Reply added successfully"
+      else
+        # Return a JSON response with errors if the response could not be saved
+        render json: { errors: @response.errors.full_messages }, status: :unprocessable_entity
       end
     end
   end
